@@ -1,0 +1,14 @@
+{
+  "name": "cw-moment",
+  "description": "A Polymer wrapper for moment.js.",
+  "keywords": "polymer, web-components",
+  "main": "cw-moment.html",
+  "license": "MIT",
+  "homepage": "https://github.com/cletusw/cw-moment/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  }
+}
