@@ -26,6 +26,17 @@ A Polymer wrapper for moment.js.
     Polymer('cw-moment', {
 
       publish: {
+        /**
+         * When greater than 0, specifies the time (in seconds) between
+         * automatic calls to the `refresh` method.
+         *
+         * When used as a boolean attribute, the defaultAutoRefreshRate is
+         * used.
+         *
+         * @attribute autoRefresh
+         * @type int or bool
+         */
+        autoRefresh: 0,
         datetime: '',
         format: '',
         formats: {
@@ -41,10 +52,36 @@ A Polymer wrapper for moment.js.
         utc: false
       },
 
+      /**
+       * Value that the autoRefresh property should be set to when its
+       * corresponding attribute is used as a boolean (no period specified).
+       *
+       * @property defaultAutoRefreshRate
+       * @type int
+       */
+      defaultAutoRefreshRate: 60,
+
+      intervalId: 0,
+
       moment: {},
 
       attributeChanged: function(attributeName, oldValue, newValue) {
-        this.createMoment();
+        if (attributeName !== 'autorefresh') {
+          this.createMoment();
+        }
+      },
+
+      autoRefreshChanged: function() {
+        if (this.intervalId) {
+          clearInterval(this.intervalId);
+        }
+
+        if (this.autoRefresh === '') {
+          this.autoRefresh = this.defaultAutoRefreshRate;
+        }
+        else if (this.autoRefresh > 0) {
+          this.intervalId = setInterval(this.refresh.bind(this), this.autoRefresh * 1000);
+        }
       },
 
       created: function() {
@@ -65,11 +102,20 @@ A Polymer wrapper for moment.js.
       },
 
       momentChanged: function() {
-        this.innerText = (this.fromNow) ? this.moment.fromNow(this.noSuffix) : this.moment.format();
+        this.refresh();
       },
 
       ready: function() {
         this.createMoment();
+      },
+
+      /**
+       * Updates the text content of this cw-moment.
+       *
+       * @method refresh
+       */
+      refresh: function() {
+        this.innerText = (this.fromNow) ? this.moment.fromNow(this.noSuffix) : this.moment.format();
       }
 
     });
