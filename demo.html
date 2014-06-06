@@ -11,8 +11,24 @@
 <body unresolved>
 
   <p>An example of using <code>&lt;cw-moment></code>:</p>
-
   <cw-moment></cw-moment>
+
+  <p>With a foreign language:</p>
+  <cw-moment datetime="2012 juillet" format="YYYY MMM" lang="fr" strict></cw-moment>
+
+  <p>With an array of formats:</p>
+  <cw-moment datetime="05-25-1995" formats="[ 'YYYY-MM-DD', 'MM-DD-YYYY' ]" strict></cw-moment>
+
+  <p>All of the above in utc mode:</p>
+  <cw-moment utc></cw-moment>
+  <cw-moment datetime="2012 juillet" format="YYYY MMM" lang="fr" strict utc></cw-moment>
+  <cw-moment datetime="05-25-1995" formats="[ 'MM-DD-YYYY', 'YYYY-MM-DD' ]" strict utc></cw-moment>
+
+  <p>With a Unix Offset (milliseconds):</p>
+  <cw-moment unixOffset="1318781876406" strict></cw-moment>
+
+  <p>With a Unix Timestamp (seconds):</p>
+  <cw-moment unixTimestamp="1318781876.406" strict></cw-moment>
 
 </body>
 </html>
