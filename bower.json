@@ -1,0 +1,7 @@
+{
+  "name": "cw-moment#gh-pages",
+  "private": true,
+  "dependencies": {
+    "cw-moment": "cletusw/cw-moment#master"
+  }
+}

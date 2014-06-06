@@ -1,0 +1,25 @@
+{
+  "name": "cw-moment",
+  "description": "A Polymer wrapper for moment.js.",
+  "keywords": "polymer, web-components",
+  "main": "cw-moment.html",
+  "license": "MIT",
+  "homepage": "https://github.com/cletusw/cw-moment/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "momentjs": "~2.6.0"
+  },
+  "_release": "d16f366116",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d16f36611611bef1b2f166191f6cb55fa082b3bd"
+  },
+  "_source": "git://github.com/cletusw/cw-moment.git",
+  "_target": "master",
+  "_originalSource": "cletusw/cw-moment",
+  "_direct": true
+}

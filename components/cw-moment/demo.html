@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>cw-moment Demo</title>
+
+  <script src="../platform/platform.js"></script>
+  <link rel="import" href="cw-moment.html">
+
+  <style>
+    p {
+      font-style: italic;
+    }
+  </style>
+
+</head>
+<body unresolved>
+
+  <p>An example of using <code>&lt;cw-moment></code>:</p>
+  <cw-moment></cw-moment>
+
+  <h2>Parsing</h2>
+
+  <p>With a foreign language:</p>
+  <cw-moment datetime="2012 juillet" format="YYYY MMM" lang="fr" strict></cw-moment>
+
+  <p>With an array of formats:</p>
+  <cw-moment datetime="05-25-1995" formats="[ 'YYYY-MM-DD', 'MM-DD-YYYY' ]" strict></cw-moment>
+
+  <p>All of the above in utc mode:</p>
+  <cw-moment utc></cw-moment>
+  <cw-moment datetime="2012 juillet" format="YYYY MMM" lang="fr" strict utc></cw-moment>
+  <cw-moment datetime="05-25-1995" formats="[ 'MM-DD-YYYY', 'YYYY-MM-DD' ]" strict utc></cw-moment>
+
+  <p>With a Unix Offset (milliseconds):</p>
+  <cw-moment unixOffset="1318781876406" strict></cw-moment>
+
+  <p>With a Unix Timestamp (seconds):</p>
+  <cw-moment unixTimestamp="1318781876.406" strict></cw-moment>
+
+  <cw-moment datetime="2013-01-01T00:00:00-13:00"></cw-moment>
+
+  <h2>Display</h2>
+  <p>From now:</p>
+  <cw-moment fromNow></cw-moment>
+  <cw-moment datetime="2014-06-05T20:40:26" fromNow></cw-moment>
+  <cw-moment datetime="2011-06-05T20:40:26" fromNow></cw-moment>
+
+  <p>From now with no suffix:</p>
+  <cw-moment fromNow noSuffix></cw-moment>
+
+  <p>With auto refresh:</p>
+  <cw-moment fromNow autoRefresh></cw-moment>
+
+  <p>And a refresh rate of 1 second:</p>
+  <cw-moment fromNow autoRefresh="1"></cw-moment>
+
+</body>
+</html>

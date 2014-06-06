@@ -1,0 +1,25 @@
+{
+  "name": "platform",
+  "main": "platform.js",
+  "homepage": "https://github.com/Polymer/platform",
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "description": "Integrate platform polyfills: load, build, test",
+  "keywords": [
+    "polymer",
+    "web",
+    "components"
+  ],
+  "license": "BSD",
+  "private": true,
+  "_release": "7a45a08d33",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7a45a08d33190380413a799d9850d6e64e6fc7f6"
+  },
+  "_source": "git://github.com/Polymer/platform.git",
+  "_target": "master",
+  "_originalSource": "Polymer/platform"
+}
