@@ -7,11 +7,19 @@
   <script src="../platform/platform.js"></script>
   <link rel="import" href="cw-moment.html">
 
+  <style>
+    p {
+      font-style: italic;
+    }
+  </style>
+
 </head>
 <body unresolved>
 
   <p>An example of using <code>&lt;cw-moment></code>:</p>
   <cw-moment></cw-moment>
+
+  <h2>Parsing</h2>
 
   <p>With a foreign language:</p>
   <cw-moment datetime="2012 juillet" format="YYYY MMM" lang="fr" strict></cw-moment>
@@ -29,6 +37,17 @@
 
   <p>With a Unix Timestamp (seconds):</p>
   <cw-moment unixTimestamp="1318781876.406" strict></cw-moment>
+
+  <cw-moment datetime="2013-01-01T00:00:00-13:00"></cw-moment>
+
+  <h2>Display</h2>
+  <p>From now:</p>
+  <cw-moment fromNow></cw-moment>
+  <cw-moment datetime="2014-06-05T20:40:26" fromNow></cw-moment>
+  <cw-moment datetime="2011-06-05T20:40:26" fromNow></cw-moment>
+
+  <p>From now with no suffix:</p>
+  <cw-moment fromNow noSuffix></cw-moment>
 
 </body>
 </html>

@@ -6,7 +6,7 @@ A Polymer wrapper for moment.js.
 
 ##### Example
 
-    <cw-moment></cw-moment>
+    <cw-moment datetime="2014-06-05T20:40:26" fromNow></cw-moment>
 
 @element cw-moment
 @homepage http://cletusw.github.io/cw-moment
@@ -32,7 +32,9 @@ A Polymer wrapper for moment.js.
           reflect: true,
           value: []
         },
+        fromNow: false,
         lang: '',
+        noSuffix: false,
         strict: false,
         unixOffset: 0,
         unixTimestamp: 0,
@@ -63,7 +65,7 @@ A Polymer wrapper for moment.js.
       },
 
       momentChanged: function() {
-        this.innerText = this.moment.format();
+        this.innerText = (this.fromNow) ? this.moment.fromNow(this.noSuffix) : this.moment.format();
       },
 
       ready: function() {
