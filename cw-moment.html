@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<script src="../momentjs/min/moment-with-langs.min.js"></script>
 
 <!--
 A Polymer wrapper for moment.js.
@@ -16,13 +17,59 @@ A Polymer wrapper for moment.js.
 
     <link rel="stylesheet" href="cw-moment.css" />
 
-    cw-moment
+    <content></content>
 
   </template>
 
   <script>
 
     Polymer('cw-moment', {
+
+      publish: {
+        datetime: '',
+        format: '',
+        formats: {
+          reflect: true,
+          value: []
+        },
+        lang: '',
+        strict: false,
+        unixOffset: 0,
+        unixTimestamp: 0,
+        utc: false
+      },
+
+      moment: {},
+
+      attributeChanged: function(attributeName, oldValue, newValue) {
+        this.createMoment();
+      },
+
+      created: function() {
+        this.formats = [];
+      },
+
+      createMoment: function() {
+        if (this.unixOffset) {
+          this.moment = moment(this.unixOffset);
+        }
+        else if (this.unixTimestamp) {
+          this.moment = moment.unix(this.unixTimestamp);
+        }
+        else {
+          var fn = this.utc ? moment.utc : moment;
+          this.moment = fn(this.datetime || undefined, this.format || ((this.formats && this.formats.length) ? this.formats : undefined), this.lang || undefined, this.strict || undefined);
+        }
+      },
+
+      momentChanged: function() {
+        this.innerText = this.moment.format();
+      },
+
+      ready: function() {
+        this.createMoment();
+      }
+
     });
 
   </script>
