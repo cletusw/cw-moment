@@ -65,6 +65,12 @@ A Polymer wrapper for moment.js.
 
       moment: {},
 
+      datetimeChanged: function() {
+        if (this.datetime) {
+          this.createMoment();
+        }
+      },
+      
       attributeChanged: function(attributeName, oldValue, newValue) {
         if (attributeName !== 'autorefresh') {
           this.createMoment();
