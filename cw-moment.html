@@ -52,6 +52,19 @@ A Polymer wrapper for moment.js.
         utc: false
       },
 
+      observe: {
+        datetime: 'createMoment',
+        format: 'createMoment',
+        formats: 'createMoment',
+        fromNow: 'createMoment',
+        lang: 'createMoment',
+        noSuffix: 'createMoment',
+        strict: 'createMoment',
+        unixOffset: 'createMoment',
+        unixTimestamp: 'createMoment',
+        utc: 'createMoment'
+      },
+
       /**
        * Value that the autoRefresh property should be set to when its
        * corresponding attribute is used as a boolean (no period specified).
@@ -64,12 +77,6 @@ A Polymer wrapper for moment.js.
       intervalId: 0,
 
       moment: {},
-
-      attributeChanged: function(attributeName, oldValue, newValue) {
-        if (attributeName !== 'autorefresh') {
-          this.createMoment();
-        }
-      },
 
       autoRefreshChanged: function() {
         if (this.intervalId) {
